@@ -1,0 +1,35 @@
+front end to back end
+
+focusing more on back end stuff
+    split into 2 parts:
+        1) Database (this week)
+        2) API Framework (handle requests, responses to front-end client)
+            - wk 11 Express
+
+Post-gres(sp?) - Postbird (need to download)
+
+note: make w10 pull
+
+Postgres terminal commands:
+
+    psql - connect to postgres service (postgres needs to know targeted database and to know username in system)
+        psql (databaseName) (username)
+
+    \l - lists all databases
+        : Name - Owner
+
+    \du - lists all users
+
+    \c database name: connects to the named database
+
+    \dt - lists tables of current DB
+
+    \d tablename - lists table details
+
+    \q - close postgres
+
+Steps to set up a DB for a project:
+
+    1) Create a user
+
+    2) 
