@@ -12,7 +12,8 @@ note: make w10 pull
 
 Postgres terminal commands:
 
-    psql - connect to postgres service (postgres needs to know targeted database and to know username in system)
+    psql - connect to postgres service
+        (postgres needs to know targeted database and to know username in system)
         psql (databaseName) (username)
 
     \l - lists all databases
@@ -31,5 +32,26 @@ Postgres terminal commands:
 Steps to set up a DB for a project:
 
     1) Create a user
+        CREATE USER username WITH attributes PASSWORD 'password'
+            (must be in single quotes for password)
 
-    2) 
+        note: cannot drop a user without dropping the database this controlled
+            by said user first
+        Drop commands:
+            1 - DROP USER username;
+            2 - DROP DATABASE databaseName;
+
+    IMPORTANT - ALL SQL COMMANDS ARE ALL ENDED WITH A SEMICOLON
+
+    2) Create the database
+        CREATE DATABASE databaseName WITH OWNER username
+
+    3) Create tables
+        CREATE TABLE people (
+            id SERIAL PRIMARY KEY,
+            first_name VARCHAR(30),
+            last_name VARCHAR(30),
+            age SMALLINT
+        )
+
+    4) Insert data
