@@ -68,3 +68,12 @@ Different types of relationships
     1) 1 - M : one to many -- board games to reviews
     2) 1 - 1 : one to one // won't build in a/A
     3) M - M : many to many
+
+When inserting a new entry into a table
+    after something was deleted,
+    the next entry will have the ID
+    of what as after the last
+    deleted row.
+
+When joining tables, ordering does matter.  May need to "link" things together if a table has no
+    connection to another table.
