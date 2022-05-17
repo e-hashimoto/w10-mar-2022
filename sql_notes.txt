@@ -55,3 +55,16 @@ Steps to set up a DB for a project:
         )
 
     4) Insert data
+
+
+Day 2 Notes
+
+Numeric (x, x) - first number: number of digits, second number: scalor
+
+Running a SQL file:
+    psql -d boardgame_dev < path to file
+
+Different types of relationships
+    1) 1 - M : one to many -- board games to reviews
+    2) 1 - 1 : one to one // won't build in a/A
+    3) M - M : many to many
