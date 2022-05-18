@@ -10,4 +10,5 @@
 -- that it inserts the value provided by the user.
 
 
--- YOUR CODE HERE
+INSERT INTO ingredients
+    VALUES (DEFAULT, $1, $2, $3, $4);

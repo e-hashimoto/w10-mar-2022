@@ -8,7 +8,7 @@ DROP USER IF EXISTS recipe_box_app;
 -- 'recipe_box_app'. It will need a password set to 'SPuaQ3no'. Best not to make
 -- it a super user.
 
-SET ROLE recipe_box_app WITH password 'SPuaQ3no';
+CREATE USER recipe_box_app WITH password 'SPuaQ3no';
 
 -- You will need to create a new database for the application named
 -- 'recipe_box'. It should be owned by 'recipe_box_app'. You may want to revoke

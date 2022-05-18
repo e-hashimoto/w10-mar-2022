@@ -14,5 +14,6 @@
 -- ORDER BY ...
 -- LIMIT ...
 
-
--- YOUR CODE HERE
+SELECT id, title, updated FROM recipes
+    ORDER BY updated DESC
+    LIMIT 10;

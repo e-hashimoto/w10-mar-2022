@@ -23,8 +23,8 @@ CREATE TABLE recipes (
     id SERIAL PRIMARY KEY,
     title VARCHAR(200) NOT NULL,
     created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-)
+    updated TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
 
 -- Create a table for the "instructions". It will need the following columns in
 -- it. The "PK" in the constraints column means the column is a "primary key".
@@ -47,7 +47,7 @@ CREATE TABLE instructions (
     list_order INTEGER NOT NULL,
     recipe_id INTEGER NOT NULL,
     FOREIGN KEY (recipe_id) REFERENCES recipes (id)
-)
+);
 
 -- Create a table for the "units_of_measure". It will need the following columns
 -- in it. The "PK" in the constraints column means the column is a "primary
@@ -61,7 +61,7 @@ CREATE TABLE instructions (
 CREATE TABLE units_of_measure (
     id SERIAL PRIMARY KEY,
     name VARCHAR(20) NOT NULL
-)
+);
 
 -- Create a table for the "ingredients". It will need the following columns in
 -- it. The "PK" in the constraints column means the column is a "primary key".
@@ -79,15 +79,15 @@ CREATE TABLE units_of_measure (
 -- | food_stuff         | VARCHAR(500)  | NOT NULL     |
 -- | recipe_id          | INTEGER       | FK, NOT NULL |
 
-CREATE TABLE ingredients(
+CREATE TABLE ingredients (
   id SERIAL PRIMARY KEY,
-  amount NUMERIC(5,2) NOT NULL,
+  amount NUMERIC(5, 2) NOT NULL,
   unit_of_measure_id INTEGER NOT NULL,
   food_stuff VARCHAR(500) NOT NULL,
-  recipe_id INTEGER NOT NULL
+  recipe_id INTEGER NOT NULL,
   FOREIGN KEY (unit_of_measure_id) REFERENCES units_of_measure (id),
-  FOREIGN KEY (recipe_id) REFERENCES recipe (id)
-)
+  FOREIGN KEY (recipe_id) REFERENCES recipes (id)
+);
 
 -- HERE BEGINS THE SEED DATA
 
