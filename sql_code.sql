@@ -131,8 +131,34 @@ INSERT INTO lfg (player_id, game_id)
      (6, 4),
      (1, 4);
 
-SELECT *
-FROM boardgames
-JOIN lfg ON (boardgames.id = lfg.game_id)
-JOIN players ON (lfg.player_id = players.id)
-WHERE boardgames.name = 'Terraforming Mars';
+--SELECT *
+--FROM boardgames
+--JOIN lfg ON (boardgames.id = lfg.game_id)
+--JOIN players ON (lfg.player_id = players.id)
+--WHERE boardgames.name = 'Terraforming Mars';
+
+-- Find the boardgame names with reviews containing a search term // subquery example
+
+--SELECT boardgames.name FROM boardgames
+--WHERE boardgames.id IN (
+--    SELECT boardgame_id FROM reviews
+--    WHERE content ILIKE 't%'
+--)
+
+-- Find player names of all players who want to play Terraforming Mars
+--SELECT players.name from players
+--WHERE players.id IN (
+--    SELECT lfg.player_id from lfg
+--    WHERE lfg.game_id = (
+--        SELECT boardgames.id FROM boardgames
+--        WHERE boardgames.name = 'Terraforming Mars'
+--)
+--)
+
+-- Find all boardgame names of the category a player has selected as their favorite using their player name
+
+SELECT boardgames.category from boardgames
+WHERE boardgames.category = (
+    SELECT players.fave_category FROM players
+    WHERE players.name = 'Ray'
+)
