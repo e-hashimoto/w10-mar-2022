@@ -77,3 +77,4 @@ When inserting a new entry into a table
 
 When joining tables, ordering does matter.  May need to "link" things together if a table has no
     connection to another table.
+

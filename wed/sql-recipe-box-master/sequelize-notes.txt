@@ -62,3 +62,24 @@ If you need to reset your DB:
     npx sequelize db:create
     npx sequelize db:migrate
     npx sequelize db:seed:all
+
+_____________________________________________________________________________________________________
+
+Thurs
+
+queries.js file
+
+    const {User, Post} = require(file name and path); // importing all files, import a folder
+
+Sequelize query methods
+    create
+    build
+    save
+    destroy
+    findByPk
+    findOne
+    findAll
+
+When writing queries, could save info from databasea into a variable to keep track.
+
+Can use 'WHERE' methods in SQL into Sequelize

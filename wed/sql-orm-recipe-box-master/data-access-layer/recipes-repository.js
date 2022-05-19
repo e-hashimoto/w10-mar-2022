@@ -97,10 +97,9 @@ async function deleteRecipe(id) {
 }
 
 async function createNewRecipe(title) {
-  // Use the create method of the Recipe object to create a new object and
-  // return it.
-  //
-  // Docs: https://sequelize.org/v5/manual/instances.html#creating-persistent-instances
+  return await Recipe.create({
+    title: title,
+  });
 }
 
 async function searchRecipes(term) {
@@ -108,6 +107,14 @@ async function searchRecipes(term) {
   // given term in its title
   //
   // Docs: https://sequelize.org/v5/manual/querying.html
+
+  return await Recipe.findAll({
+      where: {
+          title: {
+              [Op.iLike]: `%${term}%`,
+          },
+      },
+  });
 }
 
 
