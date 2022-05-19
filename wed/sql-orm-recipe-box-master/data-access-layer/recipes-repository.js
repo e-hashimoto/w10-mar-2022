@@ -40,6 +40,9 @@ async function getTenNewestRecipes() {
 }
 
 async function getRecipeById(id) {
+  return await Recipe.findByPk(id, {
+    
+  })
   // Use the findByPk method of the Recipe object to return the recipe. Use
   // nested eager loading to load the associated instructions, ingredients, and
   // measurement units.
@@ -74,7 +77,6 @@ async function getRecipeById(id) {
   // Here are links to the wholly-inadequate docs for this.
   // Docs: https://sequelize.org/v5/manual/models-usage.html#eager-loading
   //       https://sequelize.org/v5/manual/models-usage.html#nested-eager-loading
-  
 }
 
 async function deleteRecipe(id) {
