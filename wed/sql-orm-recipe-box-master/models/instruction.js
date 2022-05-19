@@ -4,14 +4,19 @@ module.exports = (sequelize, DataTypes) => {
     specification: {
       type: DataTypes.TEXT,
       validate: {
-        notEmpty: true,
+        notEmpty: true
       }
     },
-    listOrder: DataTypes.INTEGER,
+    listOrder: {
+      type: DataTypes.INTEGER,
+      validate: {
+        min: 1,
+      }
+    },
     recipeId: DataTypes.INTEGER
   }, {});
   Instruction.associate = function(models) {
-    Instruction.belongsTo(models.Recipes, { foreignKey: 'recipeId' });
+    Instruction.belongsTo(models.Recipe, { foreignKey: 'recipeId' });
   };
   return Instruction;
 };

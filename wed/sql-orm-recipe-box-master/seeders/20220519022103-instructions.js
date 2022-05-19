@@ -2,16 +2,6 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    /*
-      Add altering commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkInsert('People', [{
-        name: 'John Doe',
-        isBetaMember: false
-      }], {});
-    */
    return queryInterface.bulkInsert('Instructions', [
     { recipeId: 12, listOrder: 1, specification: 'Heat 1 tsp flavourless oil in a frying pan over a medium heat. Add the curry paste and cook for 1 min. Pour in the coconut milk, then leave to bubble away for a few mins before adding the prawns and courgetti. Cook for 1 min more to warm through, then divide between bowls.', createdAt: new Date(), updatedAt: new Date() },
     { recipeId: 11, listOrder: 1, specification: 'Peel and quarter the potatoes, then cook in a large pan of salted, boiling water for 15 mins. Drain and set aside.', createdAt: new Date(), updatedAt: new Date() },

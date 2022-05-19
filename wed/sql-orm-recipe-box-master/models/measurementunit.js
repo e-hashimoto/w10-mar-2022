@@ -4,12 +4,12 @@ module.exports = (sequelize, DataTypes) => {
     name: {
       type: DataTypes.STRING,
       validate: {
-        notEmpty: true
+        notEmpty: true,
       }
     }
   }, {});
   MeasurementUnit.associate = function(models) {
-    // associations can be defined here
+    MeasurementUnit.hasMany(models.Ingredient, { foreignKey: 'measurementUnitId'});
   };
   return MeasurementUnit;
 };
