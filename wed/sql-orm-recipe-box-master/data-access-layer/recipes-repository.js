@@ -1,4 +1,4 @@
-const { Op } = require('sequelize');
+const { Op, Model } = require('sequelize');
 let Recipe, Instruction, Ingredient, MeasurementUnit;
 let moduleError;
 
@@ -34,6 +34,9 @@ async function getTenNewestRecipes() {
   // });
   //
   // Docs: https://sequelize.org/master/class/lib/model.js~Model.html#static-method-findAll
+  return await Recipe.findAll({
+    limit: 10
+  });
 }
 
 async function getRecipeById(id) {

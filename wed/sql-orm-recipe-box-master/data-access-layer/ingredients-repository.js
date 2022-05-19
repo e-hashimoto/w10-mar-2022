@@ -24,8 +24,8 @@ async function createNewIngredient(amount, recipeId, measurementUnitId, foodStuf
   // Use the create method of the Ingredient object to create a new object.
   //
   // Docs: https://sequelize.org/v5/manual/instances.html#creating-persistent-instances
+  Ingredient.create
 
-  
 }
 
 

@@ -1,7 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Recipes = sequelize.define('Recipes', {
-    name: {
+    title: {
       type: DataTypes.STRING,
       validate: {
         notEmpty: true
