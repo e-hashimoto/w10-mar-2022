@@ -36,13 +36,20 @@ async function getTenNewestRecipes() {
   // Docs: https://sequelize.org/master/class/lib/model.js~Model.html#static-method-findAll
   return await Recipe.findAll({
     limit: 10
+    
   });
 }
 
 async function getRecipeById(id) {
   return await Recipe.findByPk(id, {
-    
-  })
+    include: [
+      Instruction,
+      {
+        model: Ingredient,
+        include: [MeasurementUnit],
+      }
+    ],
+  });
   // Use the findByPk method of the Recipe object to return the recipe. Use
   // nested eager loading to load the associated instructions, ingredients, and
   // measurement units.
@@ -77,9 +84,11 @@ async function getRecipeById(id) {
   // Here are links to the wholly-inadequate docs for this.
   // Docs: https://sequelize.org/v5/manual/models-usage.html#eager-loading
   //       https://sequelize.org/v5/manual/models-usage.html#nested-eager-loading
-}
+};
 
 async function deleteRecipe(id) {
+  let response = await Recipe.findByPk(id);
+  return await response.destroy();
   // Use the findByPk method of the Recipe object to get the object and, then,
   // destroy it. Or, use the Model.destroy({ ... where ... }) method that you
   // saw in the video.
