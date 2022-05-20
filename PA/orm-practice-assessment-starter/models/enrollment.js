@@ -5,7 +5,8 @@ module.exports = (sequelize, DataTypes) => {
     courseId: DataTypes.INTEGER
   }, {});
   Enrollment.associate = function(models) {
-    // associations can be defined here
+    Enrollment.belongsTo(models.Person, { foreignKey: 'personId'});
+    Enrollment.belongsTo(models.Course, { foreignKey: 'courseId'});
   };
   return Enrollment;
 };

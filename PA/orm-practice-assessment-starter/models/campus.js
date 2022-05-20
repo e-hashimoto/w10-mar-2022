@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING
   }, {});
   Campus.associate = function(models) {
-    // associations can be defined here
+    Campus.hasMany(models.Course, { foreignKey: 'campusId' })
   };
   return Campus;
 };

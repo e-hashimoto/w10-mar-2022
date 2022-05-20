@@ -2,6 +2,9 @@ const { Person, Course  } = require('../models');
 
 async function lookupPersonAndCourses(personId) {
   // Find person and associated courses by `personId`
+  return await Person.findByPk({
+    where: {}
+  })
 };
 
 async function lookupPersonByLastName(lastName) {

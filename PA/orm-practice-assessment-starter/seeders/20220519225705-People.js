@@ -10,7 +10,7 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('TABLE_NAME', {
+    return queryInterface.bulkDelete('People', {
       id: { [Sequelize.Op.gt]: 0 }
     });
   }

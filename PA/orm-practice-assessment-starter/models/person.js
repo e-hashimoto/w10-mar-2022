@@ -6,7 +6,11 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING
   }, {});
   Person.associate = function(models) {
-    // associations can be defined here
+    Person.belongsToMany(models.Course, {
+      through: 'Enrollment',
+      foreignKey: 'personId',
+      otherKey: 'courseId'
+    })
   };
   return Person;
 };
