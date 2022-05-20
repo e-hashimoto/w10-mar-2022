@@ -12,8 +12,8 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'courseId',
       otherKey: 'personId'
     });
-    Course.belongsToMany(models.Campus, { foreignKey: 'campusId'});
-    Course.belongsToMany(models.Department, { foreignKey: 'departmentId'});
+    Course.belongsTo(models.Campus, { foreignKey: 'campusId'});
+    Course.belongsTo(models.Department, { foreignKey: 'departmentId'});
   };
   return Course;
 };
